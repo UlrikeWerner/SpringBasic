@@ -1,31 +1,19 @@
 package de.github.ulrikewerner.springbasic;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Message {
-    public String id;
-    public String name;
-    public String message;
+    private final UUID id;
+    private String name;
+    private String message;
 
-    public Message(String id, String name, String message){
-        this.id = id;
-        this.name = name;
-        this.message = message;
+    public Message() {
+        id = UUID.randomUUID();
     }
 
-    public Message(String body) {
-        String[] messageBody = body.split(";");
-        id = messageBody[0];
-        name = messageBody[1];
-        message = messageBody[2];
-    }
-
-    public String getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
